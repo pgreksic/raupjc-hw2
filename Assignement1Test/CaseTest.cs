@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Assignment1;
+using System.Threading;
 
 
 namespace Assignement1Test
@@ -17,7 +18,7 @@ namespace Assignement1Test
             Case1();
             Case2();
             Case3();
-            Console.Read();
+            Thread.Sleep(15000);
 
 
         }
