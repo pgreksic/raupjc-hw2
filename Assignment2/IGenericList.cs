@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment2
 {
-    public interface IGenericList<X>
+    public interface IGenericList<X> : IEnumerable<X>
     {
         /// <summary >
         /// Adds an item to the collection .

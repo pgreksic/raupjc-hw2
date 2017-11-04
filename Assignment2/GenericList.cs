@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Assignment2
 {
-   public class GenericList<X> : IGenericList<X>
+   public class GenericList<X> : IGenericList<X>,IEnumerable<X>
    {
         private X[] _internalStorage;
         private int lastElementIndex;
@@ -113,5 +114,14 @@ namespace Assignment2
                 return false;
             }
         }
+       public IEnumerator<X> GetEnumerator()
+       {
+           return new GenericListEnumerator<X>(this);
+       }
+
+        IEnumerator IEnumerable.GetEnumerator()
+       {
+           return GetEnumerator();
+       }
     }
 }

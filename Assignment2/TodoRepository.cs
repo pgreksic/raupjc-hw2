@@ -31,47 +31,88 @@ namespace Assignment2
 
         public TodoItem Get(Guid todoId)
         {
-            throw new NotImplementedException();
+            return _inMemoryTodoDatabase.FirstOrDefault(item => item.Id.Equals(todoId));
         }
 
         public TodoItem Add(TodoItem todoItem)
         {
-            throw new NotImplementedException();
+            if (todoItem == null)
+            {
+                throw new ArgumentNullException();
+            }
+            else if (_inMemoryTodoDatabase.Contains(todoItem))
+            {
+                throw new DuplicateTodoItemException(todoItem.Id);
+            }
+            _inMemoryTodoDatabase.Add(todoItem);
+            return todoItem;
         }
 
         public bool Remove(Guid todoId)
         {
-            throw new NotImplementedException();
+            TodoItem item = this.Get(todoId);
+            if (item == null)
+            {
+                return false;
+            }
+            else
+            {
+                return _inMemoryTodoDatabase.Remove(item);
+                
+            }
         }
 
         public TodoItem Update(TodoItem todoItem)
         {
-            throw new NotImplementedException();
+            if(todoItem == null) throw new ArgumentNullException();
+            if (!_inMemoryTodoDatabase.Contains(todoItem))
+            {
+                _inMemoryTodoDatabase.Add(todoItem);
+                return todoItem;
+            }
+            else
+            {
+                TodoItem item = Get(todoItem.Id);
+                item.Text = todoItem.Text;
+                return item;
+
+            }
         }
 
         public bool MarkAsCompleted(Guid todoId)
         {
-            throw new NotImplementedException();
+            TodoItem completedItem = Get(todoId);
+            if (completedItem == null) return false;
+
+            return completedItem.MarkAsCompleted();
         }
 
         public List<TodoItem> GetAll()
         {
-            throw new NotImplementedException();
+            return _inMemoryTodoDatabase.OrderByDescending(item => item.DateCreated).ToList();
         }
 
         public List<TodoItem> GetActive()
         {
-            throw new NotImplementedException();
+            return _inMemoryTodoDatabase.Where(item => item.IsCompleted.Equals(false)).ToList();
         }
 
         public List<TodoItem> GetCompleted()
         {
-            throw new NotImplementedException();
+            return _inMemoryTodoDatabase.Where(item => item.IsCompleted).ToList();
         }
 
         public List<TodoItem> GetFiltered(Func<TodoItem, bool> filterFunction)
         {
-            throw new NotImplementedException();
+            return _inMemoryTodoDatabase.Where(filterFunction).ToList();
+        }
+    }
+
+    public class DuplicateTodoItemException : Exception
+    {
+        public DuplicateTodoItemException(Guid Id) : base("duplicate TodoItem_Id: " + Id.ToString())
+        {
+            
         }
     }
 }
