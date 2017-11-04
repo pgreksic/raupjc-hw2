@@ -119,7 +119,7 @@ namespace Assignment3
         }
 
         [TestMethod]
-        public void MarkAsCompleted()
+        public void MarkAsCompleted_TodoRepository()
         {
 
             ITodoRepository testTodoRepository = new TodoRepository();
@@ -225,6 +225,49 @@ namespace Assignment3
 
 
         }
+
+        //TodoRepository tests end here...................................................................................
+        // ...............................................................................................................
+        
+
+
+        //TodoItem tests start here.......................................................................................
+        //................................................................................................................
+
+        [TestMethod]
+        public void EqualsTest()
+        {
+            TodoItem firstItem = new TodoItem("Test item number with same text");
+            TodoItem secondItem = new TodoItem("Test item number with same text");
+
+            Assert.AreEqual(false, firstItem.Equals(secondItem));
+            Assert.AreNotEqual(firstItem, secondItem);
+        }
+
+        [TestMethod]
+        public void GetHashCodeTest()
+        {
+            TodoItem firstItem = new TodoItem("Test item number with same text");
+            TodoItem secondItem = new TodoItem("Test item number with same text");
+
+            Assert.AreNotEqual(secondItem.GetHashCode(), firstItem.GetHashCode());
+        }
+
+
+        [TestMethod]
+        public void MarkAsCompleted_TodoItem()
+        {
+            TodoItem firstItem = new TodoItem("Test item number with same text");
+            TodoItem secondItem = new TodoItem("Test item number with same text");
+
+            firstItem.MarkAsCompleted();
+            Assert.AreEqual(true, firstItem.IsCompleted);
+            Assert.AreEqual(false, secondItem.IsCompleted);
+
+        }
+
+        //TodoItem tests end here.........................................................................................
+        //................................................................................................................
 
     }
 }
