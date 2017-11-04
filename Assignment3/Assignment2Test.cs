@@ -237,8 +237,8 @@ namespace Assignment3
         [TestMethod]
         public void EqualsTest()
         {
-            TodoItem firstItem = new TodoItem("Test item number with same text");
-            TodoItem secondItem = new TodoItem("Test item number with same text");
+            TodoItem firstItem = new TodoItem("Test item with same text");
+            TodoItem secondItem = new TodoItem("Test item with same text");
 
             Assert.AreEqual(false, firstItem.Equals(secondItem));
             Assert.AreNotEqual(firstItem, secondItem);
@@ -247,8 +247,8 @@ namespace Assignment3
         [TestMethod]
         public void GetHashCodeTest()
         {
-            TodoItem firstItem = new TodoItem("Test item number with same text");
-            TodoItem secondItem = new TodoItem("Test item number with same text");
+            TodoItem firstItem = new TodoItem("Test item with same text");
+            TodoItem secondItem = new TodoItem("Test item with same text");
 
             Assert.AreNotEqual(secondItem.GetHashCode(), firstItem.GetHashCode());
         }
@@ -257,8 +257,8 @@ namespace Assignment3
         [TestMethod]
         public void MarkAsCompleted_TodoItem()
         {
-            TodoItem firstItem = new TodoItem("Test item number with same text");
-            TodoItem secondItem = new TodoItem("Test item number with same text");
+            TodoItem firstItem = new TodoItem("Test item with same text");
+            TodoItem secondItem = new TodoItem("Test item with same text");
 
             firstItem.MarkAsCompleted();
             Assert.AreEqual(true, firstItem.IsCompleted);
