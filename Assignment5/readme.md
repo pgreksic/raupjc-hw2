@@ -1,6 +1,5 @@
-﻿###############################################################
-
-######### Odgovori na pitanja iz petog zadatka ################
+﻿Odgovori na pitanja iz petog zadatka:
+*************************************
 
 #Pitanje 1:
 Izvršavanje programa trajalo je 5,0029344 sekundi. 
@@ -18,6 +17,7 @@ Izvršavanje programa trajalo je 1,0392582 sekundi.
 ---------------> Synchronous long operation calls finished 1,0392582 sec.
 
 #Pitanje 4:
+
 Svaka operacija se izvela na zasebnoj dretvi(otvorili smo 5 novih dretvi).
 
 #Pitanje 5:
