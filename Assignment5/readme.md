@@ -8,6 +8,7 @@ Izvršavanje programa trajalo je 5,0029344 sekundi.
 
 
 #Pitanje 2:
+
 Sve operacije su se izvodile na istoj dretvi.
 
 
