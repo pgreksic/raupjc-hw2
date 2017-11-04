@@ -4,6 +4,7 @@
 #Pitanje 1:
 
 Izvršavanje programa trajalo je 5,0029344 sekundi. 
+
 ------------------> Synchronous long operation calls finished 5,0029344 sec.
 
 
@@ -15,6 +16,7 @@ Sve operacije su se izvodile na istoj dretvi.
 #Pitanje 3:
 
 Izvršavanje programa trajalo je 1,0392582 sekundi.
+
 ---------------> Synchronous long operation calls finished 1,0392582 sec.
 
 #Pitanje 4:
